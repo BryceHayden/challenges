@@ -1,43 +1,18 @@
-
-function syncFunc() {
-  return 'I finished as soon as I was called'
-}
-
-function asyncFunc() {
+function callBackend(isLoggedIn, userCallback) {
+  let usersOnbackend = [{ name: 'john', age: 82 }, { name: 'Sammy', age: 18 }, { name: 'Tommy', age: 27 }]
   setTimeout(() => {
-    return 'I just barely finished'
-  }, 5000);
-}
-
-function getSSNSync(state, outputData) {
-  outputData()
-}
-function getSSNForState(state, outputData){
-  setTimeout(function () {
-    outputData()
-  }, state.length * 1000);
-}
-
-function asyncFuncWithCallback(timeToWait, myFancyCallback) {
-  setTimeout(function () {
-    myFancyCallback(timeToWait)
-  }, timeToWait * 1000);
-}
-
-function main() {
-  console.log(asyncFunc())
-  console.log(syncFunc())
-  asyncFuncWithCallback(25,
-    function (howLongDidYouWait) {
-       console.log(`I waited: ${howLongDidYouWait}`)
+    if (!isLoggedIn) {
+      userCallback(true, [])
+    } else {
+      userCallback(false, usersOnbackend)
     }
-  )
-  getSSNSync('Utah', function () { console.log('Now ------')})
-  asyncFuncWithCallback(8, (howLongDidYouWait) => { console.log(`I should have waited the least: ${howLongDidYouWait}`)})
-  asyncFuncWithCallback(17, (howLongDidYouWait) => { console.log(`I waited (middle): ${howLongDidYouWait}`)})
+  }, 3000);
+}
 
-  getSSNForState('California', function () { console.log('Finished with California')})
-  getSSNForState('Utah', function () { console.log('Finished with Utah')})
+function main () {
+  let users = []
+
+  callBackend(true, /* place your callback here, it should save to users */)
 }
 
 main()
