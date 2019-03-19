@@ -1,11 +1,3 @@
-/*
-  This is the first challenge that will help us prepare to create
-  a tic-tac-toe website. You are given a couple of different games
-  (represented by an array of arrays). Your goal is to complete the
-  checkForWinner function to determine IF there is a winner. Determining
-  on the status (x won, o won, or cats game) you will return a string
-  of the status (see the conditional checks below to see what is expected).
-*/
 function checkForWinner(game) {
   let winner = 'cat'
 
