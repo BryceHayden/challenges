@@ -1,3 +1,6 @@
+Update this file!!!
+
+
 These instructions will help you to complete the challenges and assignments for our class.
 
 The parts that you need to worry about changing are indicated by the comments of each file. Other areas of the file will have code that you shouldn't alter, and is used to test your changes. These areas have comments stating not to alter the test solutions. 
